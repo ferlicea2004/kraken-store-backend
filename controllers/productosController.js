@@ -310,7 +310,8 @@ const crearProducto = async (req, res) => {
     // Procesar imagen
     let imagenNombre = null;
     if (req.file) {
-      imagenNombre = req.file.filename;
+        // Cloudinary devuelve la URL completa en req.file.path
+        imagenNombre = req.file.path;
     }
 
     // Insertar producto (SIN precio_mayoreo)
